@@ -1,0 +1,242 @@
+/* MyKos — identitas: hijau pinus tua + krem hangat, aksen bata hanya untuk aksi utama.
+   Font: Plus Jakarta Sans, typeface asal Indonesia, cocok untuk produk lokal.
+   Sistem jarak: kelipatan 8. Radius: 10px kecil, 16px kartu, 20px panel. */
+
+:root{
+  --ink:#1c2a27;
+  --ink-soft:#52615c;
+  --pine:#0e4f4a;
+  --pine-dark:#09322f;
+  --cream:#faf7f1;
+  --paper:#ffffff;
+  --line:#e4ddd0;
+  --accent:#e4572e;
+  --accent-dark:#c7431f;
+  --gold:#b07d2b;
+  --radius-s:10px;
+  --radius-m:16px;
+  --radius-l:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.55;
+  font-size:16px;
+}
+img{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.2;letter-spacing:-.01em}
+h2{font-size:30px;font-weight:800;margin-bottom:8px}
+.section{padding:72px 0}
+.section-alt{background:#f1ebdf}
+.section-sub{color:var(--ink-soft);max-width:640px}
+
+/* Header */
+.site-header{
+  position:sticky;top:0;z-index:20;
+  background:var(--cream);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;gap:32px;padding-top:14px;padding-bottom:14px}
+.logo{font-size:24px;font-weight:800;color:var(--pine);text-decoration:none}
+.logo span{color:var(--accent)}
+.logo-light{color:#fff}
+.main-nav{display:flex;gap:24px;margin-right:auto}
+.main-nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+.main-nav a:hover{color:var(--pine)}
+.header-actions{display:flex;gap:10px}
+
+/* Tombol */
+.btn{
+  display:inline-block;border:0;cursor:pointer;text-decoration:none;
+  font:inherit;font-weight:700;font-size:15px;
+  padding:11px 20px;border-radius:var(--radius-s);
+}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-dark)}
+.btn-dark{background:var(--pine);color:#fff}
+.btn-dark:hover{background:var(--pine-dark)}
+.btn-ghost{background:transparent;color:var(--pine);border:1.5px solid var(--pine)}
+.btn-ghost:hover{background:#e7efec}
+
+/* Hero */
+.hero{padding:56px 0 0;background:var(--cream)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:42px;font-weight:800;margin-bottom:16px}
+.hero-sub{font-size:18px;color:var(--ink-soft);margin-bottom:20px;max-width:520px}
+.hero-points{list-style:none;display:grid;gap:10px;max-width:520px}
+.hero-points li{padding-left:22px;position:relative;font-size:15px}
+.hero-points li::before{
+  content:"";position:absolute;left:0;top:8px;width:9px;height:9px;border-radius:50%;
+  background:var(--pine);
+}
+.hero-photo img{border-radius:var(--radius-l);aspect-ratio:4/3;object-fit:cover;width:100%}
+.hero-photo figcaption{font-size:13px;color:var(--ink-soft);margin-top:8px}
+
+/* Panel pencarian */
+.search-panel{
+  margin-top:40px;background:var(--paper);
+  border:1px solid var(--line);border-radius:var(--radius-l);
+  box-shadow:0 12px 32px rgba(28,42,39,.10);
+  padding:20px;display:grid;gap:16px;
+  grid-template-columns:repeat(5,1fr) auto;align-items:end;
+}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:var(--ink-soft)}
+.field select,.field input,
+.sort-box select,.owner-form input{
+  width:100%;font:inherit;font-size:15px;color:var(--ink);
+  padding:11px 12px;border:1.5px solid var(--line);border-radius:var(--radius-s);
+  background:#fff;
+}
+.field select:focus,.field input:focus,.sort-box select:focus,.owner-form input:focus{
+  outline:2px solid var(--pine);outline-offset:1px;border-color:var(--pine);
+}
+.search-btn{padding:13px 26px;white-space:nowrap}
+
+/* Katalog */
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.sort-box{display:flex;align-items:center;gap:10px}
+.sort-box label{font-size:14px;font-weight:700;color:var(--ink-soft)}
+.sort-box select{width:auto}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}
+.chip{
+  font:inherit;font-size:14px;font-weight:600;cursor:pointer;
+  padding:8px 16px;border-radius:999px;
+  border:1.5px solid var(--line);background:var(--paper);color:var(--ink);
+}
+.chip:hover{border-color:var(--pine)}
+.chip.active{background:var(--pine);border-color:var(--pine);color:#fff}
+
+.kos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.kos-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-m);
+  overflow:hidden;display:flex;flex-direction:column;
+}
+.kos-card img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.kos-body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.kos-top{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.kos-name{font-size:18px;font-weight:800}
+.kos-loc{font-size:14px;color:var(--ink-soft)}
+.badge-tipe{
+  font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;white-space:nowrap;
+  background:#e7efec;color:var(--pine);
+}
+.kos-rating{font-size:14px}
+.kos-rating strong{color:var(--gold)}
+.kos-rating span{color:var(--ink-soft)}
+.kos-fac{font-size:13.5px;color:var(--ink-soft)}
+.kos-avail{font-size:13.5px;font-weight:700;color:var(--pine)}
+.kos-avail.low{color:var(--accent-dark)}
+.kos-foot{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:end;gap:12px}
+.kos-price strong{font-size:19px;color:var(--ink)}
+.kos-price span{display:block;font-size:12.5px;color:var(--ink-soft)}
+.btn-detail{padding:9px 16px;font-size:14px}
+
+.empty-state{
+  background:var(--paper);border:1.5px dashed var(--line);border-radius:var(--radius-m);
+  padding:40px;text-align:center;
+}
+.empty-state h3{margin-bottom:8px}
+.empty-state p{color:var(--ink-soft);margin-bottom:16px}
+
+/* Cara booking */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:32px}
+.steps li{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-m);padding:22px}
+.step-no{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--pine);color:#fff;font-weight:800;margin-bottom:14px;
+}
+.steps h3{font-size:17px;margin-bottom:8px}
+.steps p{font-size:14.5px;color:var(--ink-soft)}
+
+/* Area populer */
+.area-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+.area-list{list-style:none;border-top:1px solid var(--line)}
+.area-list li{border-bottom:1px solid var(--line)}
+.area-list button{
+  width:100%;font:inherit;text-align:left;cursor:pointer;background:none;border:0;
+  padding:16px 4px;display:flex;justify-content:space-between;gap:16px;
+  font-weight:700;color:var(--ink);font-size:16px;
+}
+.area-list button span{font-weight:600;color:var(--pine);white-space:nowrap}
+.area-list button:hover{color:var(--pine)}
+
+/* Pemilik */
+.owner{background:var(--pine-dark);color:#eef4f1}
+.owner h2{color:#fff}
+.owner-copy p{color:#c9d8d3;max-width:520px;margin-bottom:20px}
+.owner-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.owner-points{list-style:none;display:grid;gap:14px}
+.owner-points li{font-size:15.5px;color:#c9d8d3}
+.owner-points strong{color:#fff;display:block}
+.owner-form{
+  background:var(--paper);color:var(--ink);border-radius:var(--radius-l);padding:26px;
+  display:grid;gap:14px;
+}
+.owner-form h3{font-size:19px}
+.owner-form label{font-size:14px;font-weight:700;display:grid;gap:6px}
+.form-note{font-size:13px;color:var(--ink-soft)}
+.form-note.success{color:var(--pine);font-weight:700}
+
+/* FAQ */
+.faq-wrap{max-width:760px}
+.faq-wrap details{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-m);
+  padding:18px 20px;margin-top:12px;
+}
+.faq-wrap summary{font-weight:700;cursor:pointer;font-size:16px}
+.faq-wrap details p{color:var(--ink-soft);margin-top:8px;font-size:15px}
+
+/* Footer */
+.site-footer{background:#0b2724;color:#c9d8d3;padding:56px 0 0;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;padding-bottom:40px}
+.footer-grid p{max-width:420px;margin-top:10px;font-size:15px}
+.site-footer nav{display:flex;flex-direction:column;gap:10px}
+.site-footer nav a{color:#eef4f1;text-decoration:none;font-weight:600}
+.site-footer nav a:hover{text-decoration:underline}
+.footer-base{border-top:1px solid rgba(255,255,255,.14);padding:18px 20px;font-size:13.5px}
+
+/* Dialog booking */
+.booking-dialog{
+  border:0;border-radius:var(--radius-l);padding:0;max-width:560px;width:calc(100% - 40px);
+  color:var(--ink);
+}
+.booking-dialog::backdrop{background:rgba(9,30,27,.55)}
+.dialog-head{display:flex;justify-content:space-between;align-items:center;padding:20px 22px 0}
+.dialog-close{
+  border:0;background:#f1ebdf;width:36px;height:36px;border-radius:50%;
+  font-size:22px;cursor:pointer;line-height:1;
+}
+.dialog-img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-top:16px}
+.dialog-body{padding:20px 22px 24px;display:grid;gap:10px}
+.dialog-meta{font-weight:700}
+.dialog-note{font-size:14px;color:var(--ink-soft);background:var(--cream);border-radius:var(--radius-s);padding:12px}
+.dialog-price{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid var(--line);padding-top:16px}
+.price-label{display:block;font-size:13px;color:var(--ink-soft)}
+.dialog-price strong{font-size:22px}
+
+/* Responsif */
+@media (max-width:1000px){
+  .search-panel{grid-template-columns:repeat(2,1fr)}
+  .search-btn{grid-column:1/-1}
+  .kos-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  .main-nav{display:none}
+  .header-actions .btn-ghost{display:none}
+  .hero-grid,.area-grid,.owner-grid,.footer-grid{grid-template-columns:1fr}
+  .hero h1{font-size:32px}
+  .section{padding:48px 0}
+  h2{font-size:25px}
+}
+@media (max-width:560px){
+  .kos-grid,.steps{grid-template-columns:1fr}
+  .search-panel{grid-template-columns:1fr}
+  .area-list button{flex-direction:column;gap:2px}
+}
