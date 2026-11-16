@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyKos — Cari, Bandingkan, Booking Kos Online</title>
+<meta name="description" content="MyKos adalah platform pencarian dan booking kos: cari berdasarkan kota dan kampus, bandingkan harga dan fasilitas, lalu booking dan bayar online. Pemilik kos bisa memasang dan mengelola listing dari satu tempat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#atas">My<span>Kos</span></a>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="#katalog">Cari Kos</a>
+      <a href="#cara-booking">Cara Booking</a>
+      <a href="#area">Area Populer</a>
+      <a href="#faq">Bantuan</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="#pemilik">Untuk Pemilik Kos</a>
+      <a class="btn btn-dark" href="#katalog">Masuk</a>
+    </div>
+  </div>
+</header>
+
+<main id="atas">
+
+  <!-- HERO + PENCARIAN: inti konsep Traveloka, diterapkan ke kos -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1>Cari kos, bandingkan, booking. Semua dari satu tempat.</h1>
+        <p class="hero-sub">Seperti memesan hotel, tapi untuk tinggal bulanan. Lihat harga, fasilitas, foto, dan ulasan penyewa sebelumnya — lalu amankan kamar tanpa harus datang dan tanya satu-satu.</p>
+        <ul class="hero-points">
+          <li>Harga yang tampil adalah harga final per bulan, termasuk keterangan biaya tambahan</li>
+          <li>Kamar yang tampil berarti masih tersedia, diperbarui pemiliknya</li>
+          <li>Booking tercatat dan ada bukti pembayaran, bukan sekadar janji lewat chat</li>
+        </ul>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1000&q=70" alt="Ruang tinggal kos yang terang dengan sofa dan meja" width="1000" height="750" fetchpriority="high">
+        <figcaption>Kos Griya Asri, Depok — salah satu listing contoh di katalog bawah.</figcaption>
+      </figure>
+    </div>
+
+    <div class="wrap">
+      <form class="search-panel" id="searchForm">
+        <div class="field">
+          <label for="fKota">Kota / kampus / area</label>
+          <select id="fKota" name="kota">
+            <option value="">Semua kota</option>
+            <option value="Jakarta">Jakarta</option>
+            <option value="Depok">Depok</option>
+            <option value="Bandung">Bandung</option>
+            <option value="Yogyakarta">Yogyakarta</option>
+            <option value="Semarang">Semarang</option>
+            <option value="Surabaya">Surabaya</option>
+            <option value="Malang">Malang</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fTipe">Tipe kos</label>
+          <select id="fTipe" name="tipe">
+            <option value="">Semua tipe</option>
+            <option value="Putra">Putra</option>
+            <option value="Putri">Putri</option>
+            <option value="Campur">Campur</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fMasuk">Tanggal masuk</label>
+          <input type="date" id="fMasuk" name="masuk">
+        </div>
+        <div class="field">
+          <label for="fDurasi">Durasi sewa</label>
+          <select id="fDurasi" name="durasi">
+            <option value="1">1 bulan</option>
+            <option value="3">3 bulan</option>
+            <option value="6">6 bulan</option>
+            <option value="12">12 bulan</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fHarga">Harga maks / bulan</label>
+          <select id="fHarga" name="harga">
+            <option value="">Semua harga</option>
+            <option value="1000000">Di bawah Rp1 jt</option>
+            <option value="1500000">Di bawah Rp1,5 jt</option>
+            <option value="2000000">Di bawah Rp2 jt</option>
+            <option value="3000000">Di bawah Rp3 jt</option>
+          </select>
+        </div>
+        <button class="btn btn-accent search-btn" type="submit">Cari Kos</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- KATALOG -->
+  <section class="section" id="katalog">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Kos tersedia saat ini</h2>
+          <p class="section-sub"><span id="resultCount">9</span> kos ditemukan. Data kos di halaman ini adalah contoh untuk mendemonstrasikan konsep platformnya.</p>
+        </div>
+        <div class="sort-box">
+          <label for="fSort">Urutkan</label>
+          <select id="fSort">
+            <option value="rekomendasi">Rekomendasi</option>
+            <option value="murah">Harga terendah</option>
+            <option value="mahal">Harga tertinggi</option>
+            <option value="rating">Rating tertinggi</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="chips" id="facilityChips" role="group" aria-label="Filter fasilitas">
+        <button type="button" class="chip" data-fac="AC">AC</button>
+        <button type="button" class="chip" data-fac="Kamar mandi dalam">Kamar mandi dalam</button>
+        <button type="button" class="chip" data-fac="WiFi">WiFi</button>
+        <button type="button" class="chip" data-fac="Parkir motor">Parkir motor</button>
+        <button type="button" class="chip" data-fac="Dapur bersama">Dapur bersama</button>
+        <button type="button" class="chip" data-fac="Laundry">Laundry</button>
+      </div>
+
+      <div class="kos-grid" id="kosGrid"></div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <h3>Tidak ada kos yang cocok dengan filter itu</h3>
+        <p>Coba longgarkan harga maksimalnya, ganti kota, atau hapus filter fasilitasnya.</p>
+        <button class="btn btn-dark" type="button" id="resetFilter">Hapus semua filter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARA BOOKING -->
+  <section class="section section-alt" id="cara-booking">
+    <div class="wrap">
+      <h2>Cara booking di MyKos</h2>
+      <p class="section-sub">Alurnya meniru platform booking perjalanan, disesuaikan untuk sewa bulanan.</p>
+      <ol class="steps">
+        <li>
+          <span class="step-no">1</span>
+          <h3>Cari dan bandingkan</h3>
+          <p>Filter berdasarkan kota, kampus, tipe, dan bujet. Bandingkan foto, fasilitas, jarak, dan ulasan antar kos dalam satu layar.</p>
+        </li>
+        <li>
+          <span class="step-no">2</span>
+          <h3>Cek detail dan ketersediaan</h3>
+          <p>Buka detail kos untuk melihat aturan kos, biaya tambahan, dan sisa kamar. Tanggal masuk dan durasi dipilih di tahap ini.</p>
+        </li>
+        <li>
+          <span class="step-no">3</span>
+          <h3>Booking dan bayar online</h3>
+          <p>Isi data penyewa, bayar uang muka atau bulan pertama. Kamar langsung terkunci atas namamu begitu pembayaran terkonfirmasi.</p>
+        </li>
+        <li>
+          <span class="step-no">4</span>
+          <h3>Dapat e-voucher, lalu pindah</h3>
+          <p>Kamu menerima kode booking dan kontak pemilik. Tunjukkan kode itu saat check-in di kos, sisanya tercatat di riwayat transaksimu.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- AREA POPULER -->
+  <section class="section" id="area">
+    <div class="wrap area-grid">
+      <div>
+        <h2>Area yang paling banyak dicari</h2>
+        <p class="section-sub">Dekat kampus dan kawasan kantor, tempat permintaan kos tidak pernah sepi. Klik satu area untuk langsung menyaring katalog.</p>
+      </div>
+      <ul class="area-list">
+        <li><button type="button" data-area="Depok">Depok — sekitar UI &amp; Margonda <span>Mulai Rp950 rb/bln</span></button></li>
+        <li><button type="button" data-area="Yogyakarta">Yogyakarta — sekitar UGM &amp; Seturan <span>Mulai Rp750 rb/bln</span></button></li>
+        <li><button type="button" data-area="Bandung">Bandung — Dago &amp; Dipatiukur <span>Mulai Rp1,1 jt/bln</span></button></li>
+        <li><button type="button" data-area="Jakarta">Jakarta — Tebet &amp; Kemang <span>Mulai Rp1,8 jt/bln</span></button></li>
+        <li><button type="button" data-area="Surabaya">Surabaya — sekitar Unair &amp; ITS <span>Mulai Rp900 rb/bln</span></button></li>
+        <li><button type="button" data-area="Malang">Malang — Lowokwaru &amp; sekitar UB <span>Mulai Rp700 rb/bln</span></button></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PEMILIK KOS -->
+  <section class="section owner" id="pemilik">
+    <div class="wrap owner-grid">
+      <div class="owner-copy">
+        <h2>Punya kos? Biar kamarmu yang dicari orang, bukan sebaliknya.</h2>
+        <p>Pasang listing sekali, lalu terima booking dari penyewa yang sudah terverifikasi datanya. Tidak perlu lagi menjawab chat yang sama berulang-ulang atau memasang spanduk di pagar.</p>
+        <ul class="owner-points">
+          <li><strong>Kelola dari satu dasbor</strong> — ubah harga, foto, dan ketersediaan kamar kapan saja, langsung tampil ke pencari.</li>
+          <li><strong>Pembayaran tercatat</strong> — setiap booking punya bukti bayar dan data penyewa, mengurangi risiko kamar kosong karena PHP.</li>
+          <li><strong>Gratis memasang listing</strong> — biaya layanan hanya dipotong dari booking yang berhasil, bukan di depan.</li>
+        </ul>
+      </div>
+      <form class="owner-form" id="ownerForm">
+        <h3>Daftarkan kosmu</h3>
+        <label>Nama kos
+          <input type="text" name="namaKos" required placeholder="cth: Kos Griya Asri">
+        </label>
+        <label>Kota
+          <input type="text" name="kotaKos" required placeholder="cth: Depok">
+        </label>
+        <label>Jumlah kamar
+          <input type="number" name="jumlahKamar" min="1" max="500" required placeholder="cth: 12">
+        </label>
+        <label>Nomor WhatsApp pemilik
+          <input type="tel" name="wa" required placeholder="cth: 0812xxxxxxx">
+        </label>
+        <button class="btn btn-accent" type="submit">Minta Dihubungi Tim MyKos</button>
+        <p class="form-note" id="ownerNote">Formulir demo: data tidak benar-benar terkirim. Di versi produksi, data ini masuk ke antrean verifikasi pemilik.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap faq-wrap">
+      <h2>Pertanyaan yang sering masuk</h2>
+      <details>
+        <summary>Apakah harga di MyKos sudah termasuk listrik dan air?</summary>
+        <p>Tergantung kosnya, dan itu selalu ditulis di detail listing. Kalau ada biaya tambahan, pemilik wajib menampilkannya sebelum kamu booking, bukan setelahnya.</p>
+      </details>
+      <details>
+        <summary>Bagaimana kalau kamar tidak sesuai foto saat saya datang?</summary>
+        <p>Kamu bisa menolak check-in dan mengajukan pengembalian pembayaran dari halaman riwayat booking, dengan melampirkan foto kondisi sebenarnya. Dana booking ditahan platform sampai check-in terkonfirmasi.</p>
+      </details>
+      <details>
+        <summary>Apakah bisa survei dulu sebelum booking?</summary>
+        <p>Bisa. Di detail kos ada pilihan jadwal survei. Pemilik mendapat notifikasi dan kamu mendapat pengingat jadwalnya.</p>
+      </details>
+      <details>
+        <summary>Saya pemilik kos, kapan saya menerima uang booking?</summary>
+        <p>Dana diteruskan ke pemilik setelah penyewa check-in dan masa sanggah 1x24 jam lewat, supaya kedua pihak sama-sama terlindungi.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="logo logo-light" href="#atas">My<span>Kos</span></a>
+      <p>Platform pencarian dan booking kos online. Cari, bandingkan, booking, pindah — tanpa drama tanya-tanya satu per satu.</p>
+    </div>
+    <nav aria-label="Tautan bawah">
+      <a href="#katalog">Cari Kos</a>
+      <a href="#cara-booking">Cara Booking</a>
+      <a href="#area">Area Populer</a>
+      <a href="#pemilik">Daftarkan Kos</a>
+      <a href="#faq">Bantuan</a>
+    </nav>
+  </div>
+  <div class="wrap footer-base">
+    <p>© 2026 MyKos — halaman konsep/demo. Data kos, harga, rating, dan ulasan adalah contoh.</p>
+  </div>
+</footer>
+
+<!-- MODAL DETAIL + BOOKING -->
+<dialog class="booking-dialog" id="bookingDialog">
+  <div class="dialog-head">
+    <h3 id="dNama">Detail Kos</h3>
+    <button class="dialog-close" type="button" id="dialogClose" aria-label="Tutup">×</button>
+  </div>
+  <img class="dialog-img" id="dFoto" src="" alt="" width="900" height="560">
+  <div class="dialog-body">
+    <p class="dialog-meta" id="dMeta"></p>
+    <p id="dFasilitas"></p>
+    <p class="dialog-note" id="dAturan"></p>
+    <div class="dialog-price">
+      <div>
+        <span class="price-label">Total booking (uang muka 1 bulan)</span>
+        <strong id="dTotal"></strong>
+      </div>
+      <button class="btn btn-accent" type="button" id="btnBooking">Booking Kamar Ini</button>
+    </div>
+    <p class="form-note" id="bookingDone" hidden>Booking demo tercatat. Di versi produksi, langkah berikutnya adalah pembayaran dan penerbitan kode booking / e-voucher.</p>
+  </div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
